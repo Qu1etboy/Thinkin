@@ -1,0 +1,14 @@
+<%- include('../partials/head') %>
+
+  <div class="container d-flex flex-column gap-3 px-5">
+    <h1 class="fs-3">ผู้คนกําลังคิดอะไรอยู่</h1>
+    <% posts.forEach(post => { %>
+    <a class="mycard card p-3" role="button" href="/posts/<%= post.postId %>">
+      <h3 class="fs-4"><%= post.topic %></h3>
+      <p><%= post.message %></p>
+      <p>by <%= post.username %> <span class="date"> <%= post.postDate.getDate() + "/" + post.postDate.getMonth() + "/" + post.postDate.getFullYear() %></span></p>
+    </a>
+    <%}) %>
+  </div>
+
+<%- include('../partials/footer') %>

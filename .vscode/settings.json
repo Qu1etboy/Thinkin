@@ -1,0 +1,108 @@
+{
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3000,
+      "askForPassword": true,
+      "driver": "MySQL",
+      "name": "root",
+      "username": "root",
+      "database": "storeDB"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "askForPassword": true,
+      "driver": "MySQL",
+      "name": "root",
+      "database": "storeDB",
+      "username": "root"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3000,
+      "askForPassword": true,
+      "driver": "MySQL",
+      "name": "root",
+      "database": "storeDB",
+      "username": "root"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3000,
+      "askForPassword": false,
+      "driver": "MySQL",
+      "name": "root",
+      "database": "storeDB",
+      "username": "root"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "root",
+      "database": "storeDB",
+      "username": "root",
+      "password": ""
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "askForPassword": true,
+      "driver": "MySQL",
+      "username": "sqluser",
+      "database": "storeDB",
+      "name": "root"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "root",
+      "database": "storeDB",
+      "username": "root",
+      "password": "nonza12500"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "root",
+      "database": "storeDB",
+      "username": "root",
+      "password": "nonza12500"
+    }
+  ]
+}

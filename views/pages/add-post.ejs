@@ -1,0 +1,22 @@
+<%- include('../partials/head') %>
+
+  <form class="container d-flex flex-column gap-3 px-5" method="post"> 
+    <h3>What do you think right now?</h3>
+    <p>อยากเขียนอะไรก็เขียนไป ไม่มีผิดไม่มีถูก ตามความคิดและอารมณ์ของเรา</p>
+    <div class="mb-2">
+      <label class="form-label">หัวข้อ</label>
+      <input name="topic" placeholder="หัวข้อ" type="text" class="form-control" required />
+    </div>
+    <div class="mb-2">
+      <label class="form-label">เนื้อหา</label>
+      <textarea name="message" placeholder="คุณกําลังคิดอะไรอยู่..." type="text" class="form-control" rows="5" required></textarea>
+    </div>
+    <div class="mb-2">
+      <label class="form-label">นามแฝง</label>
+      <input name="username" placeholder="นามแฝง" type="text" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Send</button>
+  </form>
+
+<%- include('../partials/footer') %>
+

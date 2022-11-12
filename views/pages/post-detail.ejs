@@ -1,0 +1,34 @@
+<%- include("../partials/head") %>
+
+<div class="container px-5">
+  <div class="d-flex flex-column gap-2">
+    <h3 class="fs-4"><%= post.topic%></h3>
+    <p><%= post.message %></p>
+    <p>by <%= post.username%> <span class="date"><%= post.postDate.getDate() + "/" + post.postDate.getMonth() + "/" + post.postDate.getFullYear() %></span></p>
+  </div>
+  <h3 class="fs-4 mt-3">แสดงความคิดเห็น</h3>
+  <form action="/posts/<%=post.postId%>/comment" method="post">
+    <textarea name="message" placeholder="เขียนความคิดเห็น...." class="form-control mb-2" rows="3" required></textarea>
+    <input name="username" placeholder="from..." class="form-control mb-2" required>
+    <button type="submit" class="btn btn-primary">Send</button>
+  </form>
+  <hr>
+  <div class="fs-4 mt-2 h3"><%= comments.length %> ความคิดเห็น</div>
+  <% if (comments.length > 0) { %>
+    <div class="d-flex flex-column gap-2">
+      <% comments.forEach(comment => { %>
+        <div class="card p-3">
+          <p>
+            <span class="fw-bold"><%= comment.username %></span> 
+            <span class="date"> <%= comment.commentDate.getDate() + "/" + comment.commentDate.getMonth() + "/" + comment.commentDate.getFullYear() %></span>
+          </p>
+          <p><%= comment.message %></p>
+        </div>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <p class="text-center">ยังไม่มีความคิดเห็น</p>
+  <% } %>
+</div>
+
+<%- include("../partials/footer") %>
