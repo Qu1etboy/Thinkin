@@ -11,5 +11,5 @@ CREATE TABLE postComment (
   postId INT, 
   message VARCHAR(255),
   username VARCHAR(255),
-  commentDate DATE,
-)
+  commentDate DATE
+);
