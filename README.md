@@ -10,18 +10,14 @@ NodeJS, Express, MySQL, CRUD application
 ## Environment Variables
 
 ```
-DB_NAME=
-DB_HOST=
-DB_PASSWORD=
-DB_PORT=
-DB_USER=
+DATABASE_URL=
 PORT=
 ```
 
 ## Database
 
 - local: XAMPP (MySQL)
-- prod: railway (MySQL)
+- prod: PlanetScale (MySQL)
 
 ## Backend
 
