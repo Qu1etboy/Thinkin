@@ -8,8 +8,8 @@
   </div>
   <h3 class="fs-4 mt-3">แสดงความคิดเห็น</h3>
   <form action="/posts/<%=post.postId%>/comment" method="post">
-    <textarea name="message" placeholder="เขียนความคิดเห็น...." class="form-control mb-2" rows="3" required></textarea>
-    <input name="username" placeholder="from..." class="form-control mb-2" required>
+    <textarea name="message" placeholder="เขียนความคิดเห็น...." class="form-control mb-2" rows="3" maxlength="255" required></textarea>
+    <input name="username" placeholder="from..." class="form-control mb-2" maxlength="255" required>
     <button type="submit" class="btn btn-primary">Send</button>
   </form>
   <hr>

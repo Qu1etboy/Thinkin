@@ -5,15 +5,15 @@
     <p>อยากเขียนอะไรก็เขียนไป ไม่มีผิดไม่มีถูก ตามความคิดและอารมณ์ของเรา</p>
     <div class="mb-2">
       <label class="form-label">หัวข้อ</label>
-      <input name="topic" placeholder="หัวข้อ" type="text" class="form-control" required />
+      <input name="topic" placeholder="หัวข้อ" type="text" class="form-control" maxlength="255" required />
     </div>
     <div class="mb-2">
       <label class="form-label">เนื้อหา</label>
-      <textarea name="message" placeholder="คุณกําลังคิดอะไรอยู่..." type="text" class="form-control" rows="5" required></textarea>
+      <textarea name="message" placeholder="คุณกําลังคิดอะไรอยู่..." type="text" class="form-control" rows="5" maxlength="999" required></textarea>
     </div>
     <div class="mb-2">
       <label class="form-label">นามแฝง</label>
-      <input name="username" placeholder="นามแฝง" type="text" class="form-control" required />
+      <input name="username" placeholder="นามแฝง" type="text" class="form-control" maxlength="255" required />
     </div>
     <button type="submit" class="btn btn-primary">Send</button>
   </form>
