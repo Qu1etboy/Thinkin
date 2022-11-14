@@ -6,11 +6,20 @@ const router = express.Router();
 router.get("/", (req, res) => {
   try {
     db.query(
-      "SELECT * FROM posts ORDER BY postId DESC",
+      `SELECT 
+          posts.*,
+          COUNT(postComment.commentId) AS commentCount
+      FROM posts 
+      LEFT JOIN postComment 
+      ON posts.postId = postComment.postId 
+      GROUP BY posts.postId 
+      ORDER BY posts.postId DESC`,
       (err, results, fields) => {
         if (err) {
+          console.log(err);
           return res.status(400).send();
         }
+        console.log(results);
         res.render("pages/index", { posts: results, title: "Thinkin" });
       }
     );
