@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+
+.theme-light {
+  --primary-background-color: #f8fafc;
+  --secondary-background-color: #94a3b8;
+  --primary-text-color: black;
+  --secondary-text-color: #9ca3af;
+}
+
+.theme-dark {
+  --primary-background-color: #0f172a;
+  --secondary-background-color: #475569;
+  --primary-text-color: white;
+  --secondary-text-color: #6b7280;
+}
+
+body {
+  font-family: "Kanit", sans-serif;
+  background-color: var(--primary-background-color);
+  color: var(--primary-text-color);
+  transition: 0.3s ease-in-out;
+}
+hr {
+  color: var(--secondary-background-color);
+}
+
+header {
+  border-bottom: 1px solid var(--secondary-background-color);
+}
+
+footer {
+  border-top: 1px solid var(--secondary-background-color);
+}
+
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+.theme-dark .theme-toggle {
+  background-color: #facc15;
+  transition: 0.3s ease-in-out;
+}
+
+.theme-dark .theme-toggle:hover {
+  background-color: #eab308;
+}
+
+.theme-light .theme-toggle {
+  background-color: #6366f1;
+  transition: 0.3s ease-in-out;
+}
+
+.theme-light .theme-toggle:hover {
+  background-color: #4338ca;
+}
+
+#moon,
+#sun {
+  display: none;
+  font-size: 16px;
+}
+
+#moon {
+  color: white;
+}
+
+.theme-dark #sun {
+  display: block;
+}
+
+.theme-light #moon {
+  display: block;
+}
+
+.form-control {
+  background-color: var(--primary-background-color);
+  color: var(--primary-text-color);
+  transition: 0.3s ease-in-out;
+  border-color: var(--secondary-background-color);
+}
+
+.form-control:focus {
+  background-color: var(--primary-background-color);
+  color: var(--primary-text-color);
+  transition: 0.3s ease-in-out;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  color: var(--primary-text-color);
+}
+
+.logo {
+  color: var(--primary-text-color);
+}
+
+.menu {
+  color: var(--primary-text-color);
+  transition: 0.3s ease-in-out;
+}
+
+.menu:hover {
+  color: #0ea5e9;
+}
+
+.date {
+  color: var(--secondary-text-color);
+}
+
+.card {
+  background-color: var(--primary-background-color);
+  border-color: var(--secondary-background-color);
+  transition: 0.3s ease-in-out;
+}
+
+.mycard:hover {
+  box-shadow: 0px 0px 10px var(--secondary-background-color);
+}
+
+.link {
+  text-decoration: underline;
+  color: #3b82f6;
+}
