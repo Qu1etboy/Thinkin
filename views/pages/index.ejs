@@ -4,11 +4,11 @@
     <h1 class="fs-3">ผู้คนกําลังคิดอะไรอยู่</h1>
     <% posts.forEach(post => { %>
     <a class="mycard card p-3" role="button" href="/posts/<%= post.postId %>">
-      <h3 class="fs-4"><%= post.topic %></h3>
-      <p><%= post.message %></p>
+      <h3 class="fs-4"><%= post.title %></h3>
+      <p><%= post.content %></p>
       <p>by <%= post.username %> <span class="date"> <%= post.createdAt.toString().slice(4,21)%></span></p>
-        <% if (post.comment.length > 0) { %> 
-          <p><%= post.comment.length %> ความคิดเห็น</p>
+        <% if (post.comments.length > 0) { %> 
+          <p><%= post.comments.length %> ความคิดเห็น</p>
         <% } else {%>
           <p>ไม่มีความคิดเห็น</p>
         <% } %>

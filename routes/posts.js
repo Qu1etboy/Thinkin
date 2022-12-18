@@ -17,8 +17,8 @@ router.post("/add", async (req, res) => {
     const post = await prisma.post.create({
       data: {
         username: username,
-        topic: topic,
-        message: message,
+        title: topic,
+        content: message,
       },
     });
 
@@ -40,13 +40,13 @@ router.get("/:postId", async (req, res) => {
         postId: parseInt(postId),
       },
       include: {
-        comment: true,
+        comments: true,
       },
     });
 
     res.render("pages/post-detail", {
       post: post,
-      comments: post.comment,
+      comments: post.comments,
       title: `${post.topic} - Thinkin`,
     });
   } catch (err) {

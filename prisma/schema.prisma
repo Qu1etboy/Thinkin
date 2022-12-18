@@ -13,10 +13,10 @@ datasource db {
 model Post {
   postId    Int       @id @default(autoincrement())
   username  String
-  topic     String
-  message   String
+  title     String
+  content   String
   createdAt DateTime  @default(now())
-  comment   Comment[]
+  comments  Comment[]
 }
 
 model Comment {

@@ -2,8 +2,8 @@
 
 <div class="container px-5">
   <div class="d-flex flex-column gap-2">
-    <h3 class="fs-4"><%= post.topic%></h3>
-    <p><%= post.message %></p>
+    <h3 class="fs-4"><%= post.title%></h3>
+    <p><%= post.content %></p>
     <p>by <%= post.username%> <span class="date"><%= post.createdAt.toString().slice(4,21)%></span></p>
   </div>
   <h3 class="fs-4 mt-3">แสดงความคิดเห็น</h3>
