@@ -61,11 +61,16 @@ footer {
 #moon,
 #sun {
   display: none;
-  font-size: 16px;
 }
 
 #moon {
-  color: white;
+  fill: white;
+  width: 24px;
+  margin: 0 auto;
+}
+
+#sun {
+  margin: 0 auto;
 }
 
 .theme-dark #sun {
