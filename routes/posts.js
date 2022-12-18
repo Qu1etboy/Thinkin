@@ -1,7 +1,8 @@
 const express = require("express");
-
-const db = require("../db/index");
 const router = express.Router();
+
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
 
 // route to addPost page
 router.get("/add", (req, res) => {
@@ -9,20 +10,19 @@ router.get("/add", (req, res) => {
 });
 
 // create post
-router.post("/add", (req, res) => {
-  try {
-    const { username, topic, message } = req.body;
+router.post("/add", async (req, res) => {
+  const { username, topic, message } = req.body;
 
-    db.query(
-      "INSERT INTO posts (username, topic, message, postDate) VALUES (? ,? , ?, NOW())",
-      [username, topic, message],
-      (err, results, fields) => {
-        if (err) {
-          return res.status(400).send();
-        }
-        res.redirect("/");
-      }
-    );
+  try {
+    const post = await prisma.post.create({
+      data: {
+        username: username,
+        topic: topic,
+        message: message,
+      },
+    });
+
+    res.redirect("/");
   } catch (err) {
     console.log(err);
     return res.status(500).send();
@@ -30,60 +30,46 @@ router.post("/add", (req, res) => {
 });
 
 // read single post from post id
-router.get("/:postId", (req, res) => {
+router.get("/:postId", async (req, res) => {
   try {
     const postId = req.params.postId;
     // query single post
-    db.query(
-      "SELECT * FROM posts WHERE postId = ?",
-      [postId],
-      (err, results, field) => {
-        if (err) {
-          return res.status(400).send();
-        }
-        // get first post
-        const post = results[0];
 
-        // query comment from that post
-        db.query(
-          "SELECT * FROM postComment WHERE postId = ? ORDER BY commentId DESC",
-          [postId],
-          (err, results, field) => {
-            if (err) {
-              return res.status(400).send();
-            }
-            // get comment post
-            const comments = results;
-            res.render("pages/post-detail", {
-              post: post,
-              comments: comments,
-              title: `${post.topic} - Thinkin`,
-            });
-          }
-        );
-      }
-    );
+    const post = await prisma.post.findUnique({
+      where: {
+        postId: parseInt(postId),
+      },
+      include: {
+        comment: true,
+      },
+    });
+
+    res.render("pages/post-detail", {
+      post: post,
+      comments: post.comment,
+      title: `${post.topic} - Thinkin`,
+    });
   } catch (err) {
     console.log(err);
     return res.status(500).send();
   }
 });
 
-router.post("/:postId/comment", (req, res) => {
+router.post("/:postId/comment", async (req, res) => {
   try {
     const postId = req.params.postId;
     const { message, username } = req.body;
-    db.query(
-      "INSERT INTO postComment (postId, message, username, commentDate) VALUES (?, ?, ?, NOW())",
-      [postId, message, username],
-      (err, results, field) => {
-        if (err) {
-          return res.status(400).send();
-        }
-        console.log("comment sent");
-        res.redirect(req.get("referer"));
-      }
-    );
+
+    const comment = await prisma.comment.create({
+      data: {
+        username: username,
+        message: message,
+        postId: parseInt(postId),
+      },
+    });
+
+    // refresh the page
+    res.redirect(req.get("referer"));
   } catch (err) {
     console.log(err);
     res.status(500).send();

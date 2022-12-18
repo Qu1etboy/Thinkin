@@ -14,6 +14,7 @@
   "author": "qu1etboy",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^4.7.1",
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
@@ -22,5 +23,8 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.20"
+  },
+  "devDependencies": {
+    "prisma": "^4.7.1"
   }
 }

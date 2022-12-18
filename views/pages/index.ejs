@@ -6,9 +6,9 @@
     <a class="mycard card p-3" role="button" href="/posts/<%= post.postId %>">
       <h3 class="fs-4"><%= post.topic %></h3>
       <p><%= post.message %></p>
-      <p>by <%= post.username %> <span class="date"> <%= post.postDate.getDate() + "/" + post.postDate.getMonth() + "/" + post.postDate.getFullYear() %></span></p>
-        <% if (post.commentCount > 0) { %> 
-          <p><%= post.commentCount %> ความคิดเห็น</p>
+      <p>by <%= post.username %> <span class="date"> <%= post.createdAt.toString().slice(4,21)%></span></p>
+        <% if (post.comment.length > 0) { %> 
+          <p><%= post.comment.length %> ความคิดเห็น</p>
         <% } else {%>
           <p>ไม่มีความคิดเห็น</p>
         <% } %>

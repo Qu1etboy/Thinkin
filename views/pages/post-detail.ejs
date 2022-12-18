@@ -4,7 +4,7 @@
   <div class="d-flex flex-column gap-2">
     <h3 class="fs-4"><%= post.topic%></h3>
     <p><%= post.message %></p>
-    <p>by <%= post.username%> <span class="date"><%= post.postDate.getDate() + "/" + post.postDate.getMonth() + "/" + post.postDate.getFullYear() %></span></p>
+    <p>by <%= post.username%> <span class="date"><%= post.createdAt.toString().slice(4,21)%></span></p>
   </div>
   <h3 class="fs-4 mt-3">แสดงความคิดเห็น</h3>
   <form action="/posts/<%=post.postId%>/comment" method="post">
@@ -20,7 +20,7 @@
         <div class="card p-3">
           <p>
             <span class="fw-bold"><%= comment.username %></span> 
-            <span class="date"> <%= comment.commentDate.getDate() + "/" + comment.commentDate.getMonth() + "/" + comment.commentDate.getFullYear() %></span>
+            <span class="date"> <%= comment.createdAt.toString().slice(4,21) %></span>
           </p>
           <p><%= comment.message %></p>
         </div>
